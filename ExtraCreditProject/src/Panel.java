@@ -51,5 +51,14 @@ public class Panel extends JPanel {
         g2D.setPaint(Color.black);
         g2D.setFont(new Font("ink",Font.BOLD,25));
         g2D.drawString("GO VAQUEROS",285,70);
+
+
+        for(int x=-38;x<501;x+=50)
+        {
+            g2D.setPaint(Color.cyan);
+            g2D.fillOval(x,240,75,30);
+        }
+
+
     }
 }
