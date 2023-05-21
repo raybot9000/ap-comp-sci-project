@@ -14,17 +14,6 @@ public class Panel extends JPanel {
         this.setPreferredSize(new Dimension(500,500));
     }
 
-    private BufferedImage GetIHSLogo()
-    {
-        BufferedImage img = null;
-        try {
-            URL url = getClass().getResource("irvinehighlogo.png");
-            img = ImageIO.read(new File(url.getPath()));
-        } catch (IOException e) {
-            System.out.println(e);
-        }
-        return img;
-    }
     public void paint(Graphics g)
     {
         vaq = (Graphics2D) g;
@@ -97,7 +86,17 @@ public class Panel extends JPanel {
 
         }
     }
-
+    private BufferedImage GetIHSLogo()
+    {
+        BufferedImage img = null;
+        try {
+            URL url = getClass().getResource("irvinehighlogo.png");
+            img = ImageIO.read(new File(url.getPath()));
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+        return img;
+    }
     private void banner() {
         vaq.setPaint(Color.BLACK);
         vaq.setStroke(new BasicStroke(3));
@@ -144,7 +143,7 @@ public class Panel extends JPanel {
     private static void background() {
         // sand
         //GradientPaint sandColor = new GradientPaint(0, 0, Color.decode("#e5cf9d"),400, 0, Color.decode("#e5cb9d"));
-        GradientPaint sandColor = new GradientPaint(0, 0, Color.decode("#e5cf9d"),400, 0, Color.decode("#faf1dc"));
+        GradientPaint sandColor = new GradientPaint(0, 0, Color.decode("#e5cf9d"),400, 0, Color.decode("#e6c16e"));
         vaq.setPaint(sandColor);
         //vaq.setPaint(Color.decode("#E5D49D"));
         vaq.fillRect(0,400,500,100);
