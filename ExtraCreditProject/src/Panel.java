@@ -21,6 +21,7 @@ public class Panel extends JPanel {
         umbrella(new Point(50, 380), 100, Color.white, Color.pink);
         umbrella(new Point(200, 440), 140, Color.blue, Color.green);
         umbrella(new Point(400, 390), 100, Color.red, Color.yellow);
+        volcano();
     }
 
     private static void waves() {
@@ -68,8 +69,8 @@ public class Panel extends JPanel {
         vaq.setPaint(Color.white);
         vaq.fillRect(20,250,150,40);
         int[] x1Points = {170, 170, 230};
-        int[] y2Points = {290, 250, 250};
-        vaq.fillPolygon(x1Points, y2Points, 3);
+        int[] y1Points = {290, 250, 250};
+        vaq.fillPolygon(x1Points, y1Points, 3);
         vaq.setPaint(Color.black);
         vaq.fillRect(60,230,80,20);
         vaq.drawLine(20,260,210,260);
@@ -145,5 +146,28 @@ public class Panel extends JPanel {
 
         vaq.setPaint(Color.black);
         vaq.drawLine(p.x + (length / 4), p.y + 30, p.x + (length / 4), p.y + 60);
+    }
+
+    private static void volcano() {
+        vaq.setPaint(Color.decode("#583C02"));
+        int[] x2Points = {310,360,420,470};
+        int[] y2Points = {270,180,180,270};
+        vaq.fillPolygon(x2Points,y2Points,4);
+        vaq.setPaint(Color.decode("#F94304"));
+        vaq.fillRect(359,180,63,5);
+        vaq.setPaint(Color.decode("#474341"));
+        vaq.fillOval(340,143,40,35);
+        vaq.fillOval(360,143,40,35);
+        vaq.fillOval(380,143,40,35);
+        vaq.fillOval(400,143,40,35);
+        vaq.fillOval(355,123,30,25);
+        vaq.fillOval(375,123,30,25);
+        vaq.fillOval(395,123,30,25);
+        vaq.fillOval(365,105,30,25);
+        vaq.fillOval(385,105,30,25);
+
+
+
+
     }
 }
