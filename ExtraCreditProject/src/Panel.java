@@ -1,5 +1,10 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import javax.imageio.ImageIO;
+import java.io.IOException;
+import java.net.URL;
 
 public class Panel extends JPanel {
     private static Graphics2D vaq = null;
@@ -9,6 +14,17 @@ public class Panel extends JPanel {
         this.setPreferredSize(new Dimension(500,500));
     }
 
+    private BufferedImage GetIHSLogo()
+    {
+        BufferedImage img = null;
+        try {
+            URL url = getClass().getResource("irvinehighlogo.png");
+            img = ImageIO.read(new File(url.getPath()));
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+        return img;
+    }
     public void paint(Graphics g)
     {
         vaq = (Graphics2D) g;
@@ -82,18 +98,24 @@ public class Panel extends JPanel {
         }
     }
 
-    private static void banner() {
+    private void banner() {
         vaq.setPaint(Color.BLACK);
         vaq.setStroke(new BasicStroke(3));
         vaq.drawLine(250,60,280,40);
         vaq.drawLine(250,60,280,80);
 
-        vaq.setPaint(Color.green);
+        vaq.setPaint(Color.decode("#365f3d"));
         vaq.fillRect(280,30,200,60);
 
-        vaq.setPaint(Color.black);
-        vaq.setFont(new Font("ink",Font.BOLD,25));
-        vaq.drawString("GO VAQUEROS",285,70);
+        BufferedImage ihsLogo = GetIHSLogo();
+        vaq.drawImage(ihsLogo, 285, 35, 60, 50, null);
+
+        vaq.setPaint(Color.WHITE);
+        vaq.setFont(new Font("ink", Font.PLAIN,20));
+        vaq.drawString("GO ",355,55);
+        vaq.drawString("VAQUEROS!",355,80);
+
+        vaq.setPaint(Color.BLACK);
         vaq.drawRect(280,30,200,60);
     }
 
@@ -121,16 +143,25 @@ public class Panel extends JPanel {
 
     private static void background() {
         // sand
-        vaq.setPaint(Color.decode("#E5D49D"));
+        //GradientPaint sandColor = new GradientPaint(0, 0, Color.decode("#e5cf9d"),400, 0, Color.decode("#e5cb9d"));
+        GradientPaint sandColor = new GradientPaint(0, 0, Color.decode("#e5cf9d"),400, 0, Color.decode("#faf1dc"));
+        vaq.setPaint(sandColor);
+        //vaq.setPaint(Color.decode("#E5D49D"));
         vaq.fillRect(0,400,500,100);
 
         // ocean
-        vaq.setPaint(Color.blue);
+        //GradientPaint waterColor = new GradientPaint(0, 0, Color.decode("#030554"),500, 500, Color.WHITE);
+        GradientPaint waterColor = new GradientPaint(0, 0,  Color.decode("#09459e"), 0, 20, Color.decode("#030554"), true);
+        vaq.setPaint(waterColor);
         vaq.fillRect(0,250,500,150);
 
         // sky
         vaq.setPaint(Color.cyan);
-        vaq.fillRect(0,0,500,250);
+        vaq.fillRect(0,200,500,50);
+        GradientPaint skyColor = new GradientPaint(250, 0,  Color.WHITE, 250, 200, Color.CYAN, true);
+        vaq.setPaint(skyColor);
+        vaq.fillRect(0,0,500,200);
+
     }
 
     private static void umbrella(Point p, int length, Color c1, Color c2) {
