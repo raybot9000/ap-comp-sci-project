@@ -152,14 +152,11 @@ public class Panel extends JPanel {
 
     private static void background() {
         // sand
-        //GradientPaint sandColor = new GradientPaint(0, 0, Color.decode("#e5cf9d"),400, 0, Color.decode("#e5cb9d"));
         GradientPaint sandColor = new GradientPaint(0, 0, Color.decode("#d9cfab"),400, 0, Color.decode("#b59e48"));
         graphics2D.setPaint(sandColor);
-        //vaq.setPaint(Color.decode("#E5D49D"));
         graphics2D.fillRect(0,400,500,100);
 
         // ocean
-        //GradientPaint waterColor = new GradientPaint(0, 0, Color.decode("#030554"),500, 500, Color.WHITE);
         GradientPaint waterColor = new GradientPaint(0, 0,  Color.decode("#09459e"), 0, 20, Color.decode("#030554"), true);
         graphics2D.setPaint(waterColor);
         graphics2D.fillRect(0,250,500,150);
