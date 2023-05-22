@@ -1,5 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.geom.CubicCurve2D;
+import java.awt.geom.Point2D;
+import java.awt.geom.QuadCurve2D;
+import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import javax.imageio.ImageIO;
@@ -143,7 +147,7 @@ public class Panel extends JPanel {
     private static void background() {
         // sand
         //GradientPaint sandColor = new GradientPaint(0, 0, Color.decode("#e5cf9d"),400, 0, Color.decode("#e5cb9d"));
-        GradientPaint sandColor = new GradientPaint(0, 0, Color.decode("#e5cf9d"),400, 0, Color.decode("#e6c16e"));
+        GradientPaint sandColor = new GradientPaint(0, 0, Color.decode("#d9cfab"),400, 0, Color.decode("#b59e48"));
         vaq.setPaint(sandColor);
         //vaq.setPaint(Color.decode("#E5D49D"));
         vaq.fillRect(0,400,500,100);
@@ -195,9 +199,20 @@ public class Panel extends JPanel {
         vaq.fillOval(395,123,30,25);
         vaq.fillOval(365,105,30,25);
         vaq.fillOval(385,105,30,25);
-
-
-
+        vaq.setStroke(new BasicStroke(4));
+        CubicCurve2D curv = new CubicCurve2D.Double();
+        curv.setCurve(370, 185, 335.0, 220.0, 380.0, 240.0, 320, 268);
+        vaq.setPaint(Color.decode("#F94304"));
+        vaq.draw(curv);
+        CubicCurve2D curv1 = new CubicCurve2D.Double();
+        curv1.setCurve(390, 185, 420.0, 210.0, 315.0, 215.0, 400, 268);
+        vaq.draw(curv1);
+        CubicCurve2D curv2 = new CubicCurve2D.Double();
+        curv2.setCurve(415, 185, 440.0, 220.0, 385.0, 240.0, 375, 268);
+        vaq.draw(curv2);
+        CubicCurve2D curv3 = new CubicCurve2D.Double();
+        curv3.setCurve(405, 185, 400.0, 220.0, 410.0, 240.0, 455, 268);
+        vaq.draw(curv3);
 
     }
 }
